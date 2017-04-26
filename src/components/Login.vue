@@ -1,44 +1,29 @@
 <template>
   <div class="background">
-        <div class="column gutter items-center justify-center">
-          <div>
-            <div class="card">
-              <div class="card-title">
-                <h2> Login </h2>
-              </div>
-              <div class="card-content">
-                <div class="entry">
-                  <div class="floating-label">
-                    <input v-model="userName" required class="full-width">
-                    <label class="text-primary">User Name</label>
-                  </div>
-                </div>
-                <div class="entry">
-                  <div class="floating-label">
-                    <input v-model="password" type="password" required class="full-width">
-                    <label class="text-primary">Password</label>
-                 </div>
-                </div>
-                <div class="entry">
-                   <button id="LogInButton" class="text-dark bg-primary push small ">
-                      Log in
-                    <i class="logIcon big">forward</i>
-                    </button>
-                </div>
-                <div class="entry">
-                   <button id="SignInButton" class="text-dark bg-secondary push">
-                      Sign in
-                    <i class="logIcon big">add</i>
-                    </button>
-                </div>
-                 <div class="question strong text-center">
-                   <p <a class="text-warning" href="https://www.google.es/#q=noob">Forget your password?</a>
-                    </button>
-                </div>
-              </div>
-            </div> 
+    <div class="layout-padding">
+      <div class="card">
+          <div class="entry">
+            <input v-model="username" placeholder="Username">
+          </div>
+          <div class="entry">
+            <input v-model="password" type="password"placeholder="Password">
+          </div>
+          <div class="button">
+              <button id="LogInButton" class="text-dark bg-primary push">
+                Log in
+              <i class="logIcon big">forward</i>
+              </button>
+    
+              <button id="SignInButton" class="text-dark bg-secondary push">
+                Sign in
+              <i class="logIcon big">add</i>
+              </button>
+          </div>
+            <div class="question strong text-center">
+              <p <a class="text-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forget your password?</a>
           </div>
         </div>
+      </div>
   </div>
 </template>
 
@@ -47,57 +32,59 @@
 </script>
 
 <style lang="styl" scoped>
-.h2{
-  justify-content:center
-
+.layout-padding{
+      background: url(../assets/loginCard.png) no-repeat center center;
+    background-size: contain;
 }
 .background{
   height:100%
   display: flex
   justify-content center
   align-items center
-  background-image: url(../assets/loginBackground.jpg)
+  background: url(../assets/loginBackground.jpg) no-repeat center center fixed
+  background-size:cover
 }
 .card{
-  height:35em
-  width:20em
-  background-image: url(../assets/loginCard.png)
-  background-size:20em 35em;
-  backgrount-repeat:no-repeat
-  border:0px
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 6em;
+  padding-bottom: 3.5em;
+  display:  flex
+  flex-direction:column
+  justify-content: space-around
+  align-items: strecht
   box-shadow:none
 }
-.card-title{
-  text-align: center
- }
+
 .entry
 {
-  padding-right: 35 px
-  padding-top:7px
-  padding-left: 35 px
-  padding-bottom:10px
+display:flex
+justify-content: strecht
+}
+.button{
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end
+  
 }
 .question
 {
-  padding-right: 35 px
-  padding-top:7px
-  padding-left: 35 px
-  padding-bottom:10px
-  align-content:center
+
 }
 
 #LogInButton{
-  margin-top:45px
+  display:flex
+  justify-content: center
+  align-items: center
+  margin-bottom:2em
   width:100%
-  height: 50px
-  margin-left:-1px
-
+  height:6em
 }
 #SignInButton{
+  display:flex
+  justify-content: center
+  align-items: center
   width:100%
-  height: 50px
-  margin-left:-1px
-  margin-bottom: -5px
+  height:6em
 }
-
 </style>
