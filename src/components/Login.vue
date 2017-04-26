@@ -9,17 +9,17 @@
             <input v-model="password" type="password"placeholder="Password">
           </div>
           <div class="button row ">
-              <button id="LogInButton" class="text-dark bg-primary push">
+              <button id="LogInButton" class="strong text-dark bg-primary push glossy">
                 Log in
-              <i class="logIcon big">forward</i>
+              <i class="logIcon big text-light">forward</i>
               </button>
     
-              <button id="SignInButton" class="text-dark bg-secondary push ">
+              <button id="SignInButton" class="strong text-dark bg-secondary push glossy ">
                 Sign in
-              <i class="logIcon big">add</i>
+              <i class="logIcon big text-light">add</i>
               </button>
           </div>
-            <div class="question strong text-center">
+            <div class="question text-center">
               <p <a class="text-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forget your password?</a>
           </div>
         </div>
@@ -78,6 +78,7 @@ margin-bottom:1em
 .question
 {
 margin-top:2em
+font-size:1.2em
 }
 
 #LogInButton{
