@@ -41,8 +41,12 @@
         loginInfo: {
           email: '',
           password: ''
-        },
-        isLogged: false
+        }
+      }
+    },
+    computed: {
+      isLogged () {
+        return this.$store.getters.isLogged
       }
     },
     methods: {
@@ -64,10 +68,12 @@
       doLogIn () {
         api.logIn(this.loginInfo)
         .then((response) => {
-          this.isLogged = true
+          this.$store.dispatch('setLogged', true)
+          console.log('Cool')
         })
         .catch(() => {
-          this.isLogged = false
+          this.$store.dispatch('setLogged', false)
+          console.log('Bad')
         })
       }
     }
