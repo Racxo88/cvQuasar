@@ -5,20 +5,11 @@ const store = new Vuex.Store({
   state: {
     isLogged: false
   },
-  actions: {
-    setLogged ({commit}, isLogged) {
-      commit('EDIT_LOGGED', isLogged)
-    }
-  },
+
   mutations: {
-    EDIT_LOGGED (state, isLogged) {
+    logged (state, isLogged) {
       state.isLogged = isLogged
     }
-  },
-  getters: {
-    isLogged: state => { return state.isLogged }
-  },
-  modules: {
   }
 })
 export default store

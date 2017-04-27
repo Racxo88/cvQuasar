@@ -46,7 +46,7 @@
     },
     computed: {
       isLogged () {
-        return this.$store.getters.isLogged
+        return this.$store.state.isLogged
       }
     },
     methods: {
@@ -67,12 +67,8 @@
       },
       doLogIn () {
         api.logIn(this.loginInfo)
-        .then((response) => {
-          this.$store.dispatch('setLogged', true)
-          console.log('Cool')
-        })
         .catch(() => {
-          this.$store.dispatch('setLogged', false)
+          this.$store.commit('logged', false)
           console.log('Bad')
         })
       }
