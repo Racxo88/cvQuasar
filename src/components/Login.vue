@@ -1,35 +1,78 @@
 <template>
   <div class=" flex background">
-    <div class="layout-padding row width-1of3">
+    <div class="layout-padding column width-1of3">
+    <div class="text-center fixed-top">
+    <h1 v-show="isLogged">Welcome!!</h1>
+    </div>
       <div class="card column justify-center absolute ">
           <div class="entry">
-            <input v-model="username" placeholder="Username">
+            <input v-model="loginInfo.email" placeholder="Email">
           </div>
           <div class="entry">
-            <input v-model="password" type="password"placeholder="Password">
+            <input v-model="loginInfo.password" type="password"placeholder="Password">
           </div>
           <div class="button row ">
-              <button id="LogInButton" class="strong text-dark bg-primary push glossy">
+              <button v-on:click="doLogIn" id="LogInButton" class="strong text-dark bg-primary push glossy">
                 Log in
               <i class="logIcon big text-light">forward</i>
               </button>
     
-              <button id="SignInButton" class="strong text-dark bg-secondary push glossy ">
+              <button v-on:click="doSignIn" id="SignInButton" class="strong text-dark bg-secondary push glossy ">
                 Sign in
               <i class="logIcon big text-light">add</i>
               </button>
           </div>
             <div class="question text-center">
-              <p <a class="text-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forget your password?</a>
+              <p <a class="text-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot your password?</a>
+              <p v-if="this.isLogged===true"class="text-primary strong"> Logged in!! </p>
+              <p v-else class="text-negative strong"> Not logged!!<p/>
           </div>
         </div>
-      </div>
+      </div> 
   </div>
 </template>
 
 <script>
-  
-</script>
+  import { Dialog } from 'quasar'
+  import api from '../../services/api'
+  export default {
+    data () {
+      return {
+        loginInfo: {
+          email: '',
+          password: ''
+        },
+        isLogged: false
+      }
+    },
+    methods: {
+      doSignIn () {
+        Dialog.create({
+          title: 'Info',
+          message: 'This website is just for cool people.',
+          buttons: [
+            'Accept',
+            {
+              label: 'Cancel',
+              handler () {
+                window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+              }
+            }
+          ]
+        })
+      },
+      doLogIn () {
+        api.logIn(this.loginInfo)
+        .then((response) => {
+          this.isLogged = true
+        })
+        .catch(() => {
+          this.isLogged = false
+        })
+      }
+    }
+  }
+  </script>
 
 <style lang="styl" scoped>
 
@@ -86,7 +129,6 @@ font-size:1.2em
   margin-right:0.5em
   height:3.5em
   width:auto
-  
 
 }
 #SignInButton{
