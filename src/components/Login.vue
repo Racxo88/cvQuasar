@@ -34,7 +34,7 @@
 
 <script>
   import { Dialog } from 'quasar'
-  import api from '../../services/api'
+  import auth from '../../services/auth'
   export default {
     data () {
       return {
@@ -66,7 +66,7 @@
         })
       },
       doLogIn () {
-        api.logIn(this.loginInfo)
+        auth.logIn(this.loginInfo)
         .catch(() => {
           this.$store.commit('logged', false)
           console.log('Bad')

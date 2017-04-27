@@ -2,7 +2,7 @@ import axios from 'axios'
 import constants from '../config/constants'
 import store from '../src/vuex/store'
 axios.defaults.baseURL = constants.apiUrl
-const api = {
+const auth = {
   logIn: (credentials) => {
     return axios.post('/users/login', {
       email: credentials.email,
@@ -16,5 +16,5 @@ const api = {
     })
   }
 }
-export default api
+export default auth
 
