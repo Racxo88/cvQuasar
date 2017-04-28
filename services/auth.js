@@ -9,8 +9,11 @@ const auth = {
       password: credentials.password
     })
     .then((response) => {
+      console.log(response)
       if (response.status === 200) {
         store.commit('logged', true)
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
+        axios.get('/users')
         console.log('Exito')
       }
     })

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from './vuex/store'
 
 Vue.use(VueRouter)
 
@@ -7,7 +8,7 @@ function load (component) {
   return () => System.import(`components/${component}.vue`)
 }
 
-export default new VueRouter({
+var router = new VueRouter({
   /*
    * NOTE! VueRouter "history" mode DOESN'T works for Cordova builds,
    * it is only to be used only for websites.
@@ -19,11 +20,23 @@ export default new VueRouter({
    * If switching back to default "hash" mode, don't forget to set the
    * build publicPath back to '' so Cordova builds work again.
    */
-
   routes: [
-    { path: '/', component: load('Index') }, // Default
-    { path: '/login', component: load('Login') }, // Login
-    { path: '/home', component: load('Home') }, // Home
-    { path: '*', component: load('Error404') } // Not found
+    { path: '/', component: load('Index'), name: '/' }, // Default
+    { path: '/login', component: load('Login'), name: 'Login' }, // Login
+    { path: '/home', component: load('Home'), name: 'Home' }, // Home
+    { path: '*', component: load('Error404'), name: 'Error404' } // Not found
   ]
 })
+var privateRoutes = [
+  '/',
+  'Home'
+]
+router.beforeEach((to, from, next) => {
+  if (!store.state.isLogged && (privateRoutes.indexOf(to.name) > -1)) {
+    next('/login')
+  }
+  else {
+    next()
+  }
+})
+export default router
