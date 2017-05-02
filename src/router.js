@@ -35,6 +35,9 @@ router.beforeEach((to, from, next) => {
   if (!store.state.isLogged && (privateRoutes.indexOf(to.name) > -1)) {
     next('/login')
   }
+  else if (store.state.isLogged && to.name === 'Login') {
+    next('/Home')
+  }
   else {
     next()
   }

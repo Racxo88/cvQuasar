@@ -1,8 +1,8 @@
 <template>
   <div class=" flex background">
     <div class="layout-padding column width-1of3">
-    <div class="text-center fixed-top">
-    <h1 v-show="isLogged">Welcome!!</h1>
+    <div  id="TitleHeading">
+    <h1 class="text-light text-center fixed-top">GetMoneyApp()</h1>
     </div>
       <div class="card column justify-center absolute ">
           <div class="entry">
@@ -24,8 +24,6 @@
           </div>
             <div class="question text-center">
               <p <a class="text-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot your password?</a>
-              <p v-if="this.isLogged===true"class="text-primary strong"> Logged in!! </p>
-              <p v-else class="text-negative strong"> Not logged!!<p/>
           </div>
         </div>
       </div> 
@@ -33,7 +31,7 @@
 </template>
 
 <script>
-  import { Dialog } from 'quasar'
+  import { Dialog, Toast } from 'quasar'
   import auth from '../../services/auth'
   export default {
     data () {
@@ -67,9 +65,25 @@
       },
       doLogIn () {
         auth.logIn(this.loginInfo)
+        .then(() => {
+          Toast.create.positive({
+            html: 'Log in successfully',
+            timeout: 2500,
+            button: {
+              color: '#000'
+            }
+          })
+          this.$router.push('Home')
+        })
         .catch(() => {
           this.$store.commit('logged', false)
-          console.log('Bad')
+          Toast.create.negative({
+            html: 'Incorrect user or password',
+            timeout: 2500,
+            button: {
+              color: '#000'
+            }
+          })
         })
       }
     }
@@ -77,6 +91,17 @@
   </script>
 
 <style lang="styl" scoped>
+h1{
+  background-color: rgba(100, 100,100, 0.3);
+  font-family: Verdana
+  font-variant: small-caps
+  font-size:13vw
+  @media (min-width: 670px){
+    font-size:90px
+
+  }
+  
+}
 
 .background{
   height:100%
@@ -129,6 +154,9 @@ font-size:1.2em
 #LogInButton{
 
   margin-right:0.5em
+  display:flex
+  justify-content: center
+  align-items: center
   height:3.5em
   width:auto
 

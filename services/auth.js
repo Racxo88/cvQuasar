@@ -13,7 +13,6 @@ const auth = {
       if (response.status === 200) {
         store.commit('logged', true)
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
-        axios.get('/users')
         console.log('Exito')
       }
     })
