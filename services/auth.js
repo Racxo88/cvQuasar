@@ -16,6 +16,10 @@ const auth = {
         console.log('Exito')
       }
     })
+  },
+  logout: () => {
+    store.commit('logged', false)
+    axios.defaults.headers.common['Authorization'] = ''
   }
 }
 export default auth

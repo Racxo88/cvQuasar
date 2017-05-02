@@ -2,6 +2,14 @@
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
     <router-view></router-view>
+     <q-fab v-if="isLogged"
+        class="absolute-bottom-right"
+        icon="settings"
+        direction="up"
+      >
+        <q-small-fab class="negative" @click.native="logout()" icon="power_settings_new"></q-small-fab>
+        
+      </q-fab>
   </div>
 </template>
 
@@ -9,7 +17,21 @@
 /*
  * Root component
  */
-export default {}
+import auth from '../services/auth'
+export default {
+  computed: {
+    isLogged () {
+      return this.$store.state.isLogged
+    }
+  },
+  methods: {
+    logout () {
+      console.log('agua')
+      auth.logout()
+      this.$router.push('Login')
+    }
+  }
+}
 </script>
 
 <style lang="styl">

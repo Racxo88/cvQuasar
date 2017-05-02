@@ -9,6 +9,7 @@ const store = new Vuex.Store({
   mutations: {
     logged (state, isLogged) {
       state.isLogged = isLogged
+      console.log(isLogged)
     }
   }
 })

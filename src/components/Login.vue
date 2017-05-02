@@ -37,8 +37,8 @@
     data () {
       return {
         loginInfo: {
-          email: '',
-          password: ''
+          email: 'test@test.com',
+          password: 'test'
         }
       }
     },
@@ -66,13 +66,6 @@
       doLogIn () {
         auth.logIn(this.loginInfo)
         .then(() => {
-          Toast.create.positive({
-            html: 'Log in successfully',
-            timeout: 2500,
-            button: {
-              color: '#000'
-            }
-          })
           this.$router.push('Home')
         })
         .catch(() => {

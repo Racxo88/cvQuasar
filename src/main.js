@@ -10,9 +10,11 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
 import store from './vuex/store'
-
 Vue.use(Quasar) // Install Quasar Framework
-
+Quasar.Toast.setDefaults({
+  // props from above
+  bgColor: '#66AA66'
+})
 Quasar.start(() => {
   /* eslint-disable no-new */
   new Vue({
