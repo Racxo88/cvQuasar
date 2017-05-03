@@ -88,7 +88,7 @@ h1{
   background-color: rgba(100, 100,100, 0.3);
   font-family: Verdana
   font-variant: small-caps
-  font-size:2.5em
+  font-size:8vw
 }
 
 .background{

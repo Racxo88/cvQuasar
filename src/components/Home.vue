@@ -13,8 +13,8 @@
       </q-toolbar-title>
       
     </div>
-    <div class="flex " id="cork">
-      <div class="column width-1of2"> 
+    <div class="layout-margin row full-width" id="cork">
+      <div class="layout-margin column width-1of2 items-center"> 
         <div class="card">
         
         </div>
@@ -25,7 +25,7 @@
       
         </div>
       </div>
-      <div class="column width-1of2"> 
+      <div class="column width-1of2 items-center"> 
       
         <div class="card">
        
@@ -57,13 +57,14 @@ export default {
     background: url(../assets/cork.png) repeat center center;
     background-size: contain;
     height: auto
-    width: 100vw;
   }
   .card{
+    padding-top:2vw
+    background: url(../assets/loginCard.png);
+    background-repeat:no-repeat;
+    background-size:90% 100%;
+    background-position:center;
     height:100%
-    width:100%
-    background: url(../assets/loginCard.png) no-repeat center center
-    background-size:contain
-    box-shadow:none
+    max-width:500px
   }
 </style>
