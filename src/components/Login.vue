@@ -1,32 +1,32 @@
 <template>
-  <div class=" flex background">
-    <div class="layout-padding column width-1of3">
-    <div  id="TitleHeading">
-    <h1 class="text-light text-center fixed-top">GetMoneyApp()</h1>
+  <div class=" layout column background items-center">
+    <div  id="TitleHeading" class="text-center width-1of5">
+      <h1 class="text-light">GetMoneyApp()</h1>
     </div>
-      <div class="card column justify-center absolute ">
+    <div id="cardBack" class="layout-margin row width-4of5 full-width">
+      <div class="card layout-margin column items-center justify-center ">
           <div class="entry">
             <input v-model="loginInfo.email" placeholder="Email">
           </div>
           <div class="entry">
             <input v-model="loginInfo.password" type="password"placeholder="Password">
           </div>
-          <div class="button row ">
-              <button v-on:click="doLogIn" id="LogInButton" class="strong text-dark bg-primary push glossy">
+          <div class="button layout-margin inline-row">
+              <button v-on:click="doLogIn" id="LogInButton" class="strong text-dark bg-primary push glossy width-1of2">
                 Log in
               <i class="logIcon big text-light">forward</i>
               </button>
     
-              <button v-on:click="doSignIn" id="SignInButton" class="strong text-dark bg-secondary push glossy ">
+              <button v-on:click="doSignIn" id="SignInButton" class=" strong text-dark bg-secondary push glossy width-1of2">
                 Sign in
               <i class="logIcon big text-light">add</i>
               </button>
           </div>
-            <div class="question text-center">
+            <div class="question height-1of1">
               <p <a class="text-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot your password?</a>
           </div>
         </div>
-      </div> 
+      </div>
   </div>
 </template>
 
@@ -88,78 +88,56 @@ h1{
   background-color: rgba(100, 100,100, 0.3);
   font-family: Verdana
   font-variant: small-caps
-  font-size:13vw
-  @media (min-width: 670px){
-    font-size:90px
-
-  }
-  
+  font-size:2.5em
 }
 
 .background{
-  height:100%
-  width:100%
-  display: flex
-  align-items center
-  justify-content center
   background: url(../assets/loginBackground.jpg) no-repeat center fixed 
   background-size:cover
-  overflow:hidden
 }
-.layout-padding{
+#cardBack{
+    padding-top:2vw
+    max-width:750px
+    max-height:900px
+    background: url(../assets/loginCard.png);
+    background-repeat:no-repeat;
+    background-size:90% 100%;
+    background-position:center;
+    margin-bottom:2em
 
-    background: url(../assets/loginCard.png) no-repeat center center;
-    background-size: contain;
-    height:100%
-    width:auto
-
-    
-   
 }
 .card{
-  height:100%
-  width:100%
   box-shadow:none
+  max-width:750px
+  max-height:9000px
 }
-
+input{
+  font-size:3vh
+}
 .card .entry
 {
-display:flex
-justify-content: center
 margin-bottom:1em
 }
 .button{
-  margin-top:1em
-  padding-left:1.9em
-  padding-right:1.7em
-  display: flex;
-  flex-direction:row;
-  align-items: flex-end
-  justify-content: center
-  
+  margin-top:1vh
+  margin-bottom:1vh
+
 }
 .question
 {
-margin-top:2em
-font-size:1.2em
+margin-top:1vh
+font-size:3vh
 }
 
 #LogInButton{
 
   margin-right:0.5em
-  display:flex
-  justify-content: center
-  align-items: center
-  height:3.5em
-  width:auto
+  font-size:1.5vh
 
 }
 #SignInButton{
-  display:flex
-  justify-content: center
-  align-items: center
-  height:3.5em
-  width:auto
+font-size:1.5vh
+
 
 }
 </style>

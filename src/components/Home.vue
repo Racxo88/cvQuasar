@@ -13,9 +13,30 @@
       </q-toolbar-title>
       
     </div>
-    <div class="layout-padding " id="cork"> 
-   
+    <div class="flex " id="cork">
+      <div class="column width-1of2"> 
+        <div class="card">
+        
+        </div>
+        <div class="card">
+        
+        </div>
+        <div class="card">
+      
+        </div>
+      </div>
+      <div class="column width-1of2"> 
+      
+        <div class="card">
+       
+        </div>
+         <div class="card">
+    
+        </div>
+        <div class="card">
+        </div>
     </div>
+  </div>
   </q-layout>
 </div>
 </template>
@@ -35,7 +56,14 @@ export default {
   #cork{
     background: url(../assets/cork.png) repeat center center;
     background-size: contain;
-    height: 100vh;
-    width: 100%;
+    height: auto
+    width: 100vw;
+  }
+  .card{
+    height:100%
+    width:100%
+    background: url(../assets/loginCard.png) no-repeat center center
+    background-size:contain
+    box-shadow:none
   }
 </style>

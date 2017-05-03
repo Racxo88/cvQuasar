@@ -6,6 +6,7 @@
         class="absolute-bottom-right"
         icon="settings"
         direction="up"
+        id="ExitButton"
       >
         <q-small-fab class="negative" @click.native="logout()" icon="power_settings_new"></q-small-fab>
         
@@ -26,7 +27,6 @@ export default {
   },
   methods: {
     logout () {
-      console.log('agua')
       auth.logout()
       this.$router.push('Login')
     }
@@ -43,5 +43,8 @@ export default {
   }
   i.big {
     font-size: 2.5em !important;
+  }
+  #ExitButton{
+    padding-bottom:-3em !important;
   }
 </style>
