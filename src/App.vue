@@ -44,6 +44,6 @@ export default {
     font-size: 2.5em !important;
   }
   #ExitButton{
-    padding-bottom:-3em !important;
+    padding-bottom:-0em !important;
   }
 </style>

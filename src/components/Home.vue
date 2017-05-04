@@ -18,11 +18,11 @@
         <div class="card layout-margin column text-center justify-center" id="rojo">
           <a class="text-light"href='http://www.google.es'> Daily actions </a>
         </div>
-        <div class="card layout-margin column text-center justify-center" id="blanco">
-          <a class="text-red" href='http://www.google.es'> Subjects </a>
+        <div class="card layout-margin column text-center justify-center" id="verde">
+          <a class="text-light" href='http://www.google.es'> Subjects </a>
         </div>
-        <div class="card">
-      
+         <div class="card layout-margin column text-center justify-center" id="azul">
+                 <a class="text-light"href='http://www.google.es'> University </a>
         </div>
       </div>
       <div class="column width-1of2 items-center"> 
@@ -30,10 +30,12 @@
         <div class=" card layout-margin column text-center justify-center" id="amarillo">
                  <a class="text-dark"href='http://www.google.es'> History actions </a>
         </div>
-         <div class="card">
-    
+         <div class="card layout-margin column text-center justify-center" id="blanco">
+                 <a class="text-red"href='http://www.google.es'> Academic record  </a>
+         
         </div>
-        <div class="card">
+         <div class="card layout-margin column text-center justify-center" id="morado">
+                 <a class="text-light"href='http://www.google.es'> My profile  </a>
         </div>
     </div>
   </div>
@@ -86,5 +88,24 @@ export default {
   }
   #blanco a{
     padding-top:0.8em
+  }
+  #azul{
+    background: url(../assets/postItAzul.png);
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-position:center;
+  }
+  #morado{
+    background: url(../assets/postItMorado.png);
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-position:center;
+  }
+   #verde{
+    background: url(../assets/postItVerde.png);
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-position:center;
+    margin-top:-1em
   }
 </style>
