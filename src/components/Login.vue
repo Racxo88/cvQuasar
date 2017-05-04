@@ -1,5 +1,5 @@
 <template>
-  <div class=" layout column background items-center">
+  <div class="layout column background items-center">
     <div  id="TitleHeading" class="text-center width-1of5">
       <h1 class="text-light">GetMoneyApp()</h1>
     </div>
@@ -94,6 +94,8 @@ h1{
 .background{
   background: url(../assets/loginBackground.jpg) no-repeat center fixed 
   background-size:cover
+  min-height:100vh
+
 }
 #cardBack{
     padding-top:2vw
@@ -104,7 +106,6 @@ h1{
     background-size:90% 100%;
     background-position:center;
     margin-bottom:2em
-
 }
 .card{
   box-shadow:none
@@ -137,7 +138,5 @@ font-size:3vh
 }
 #SignInButton{
 font-size:1.5vh
-
-
 }
 </style>

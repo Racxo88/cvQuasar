@@ -36,8 +36,7 @@ export default {
 
 <style lang="styl">
   html, body, #q-app {
-    height: 100%
-  }
+    height: 100%  }
   i {
     font-size: 1.5em !important;
   }
