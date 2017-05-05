@@ -13,7 +13,14 @@ const auth = {
       if (response.status === 200) {
         store.commit('logged', true)
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
-        console.log('Exito')
+        store.commit('setUser', response.data.userId)
+        axios.get('students/user/' + response.data.userId)
+        .then((response) => {
+          store.commit('setStudent', response.data.student.id)
+          console.log('Exito')
+          console.log(store.state.studentId)
+          console.log(store.state.userId)
+        })
       }
     })
   },
