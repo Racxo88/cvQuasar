@@ -92,9 +92,9 @@ h1{
 }
 
 .background{
-  background: url(../assets/loginBackground.jpg) no-repeat center fixed 
-  background-size:cover
-  min-height:100vh
+background: url(../assets/backGroundHome.png) repeat center center;
+    background-size: contain;
+    height: auto
 
 }
 #cardBack{

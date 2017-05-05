@@ -1,6 +1,6 @@
 <template>
 <div>
-    <q-layout id="cork">
+    <q-layout id="flat">
     <div slot="header" class="toolbar bg-primary">
       <button
         class="hide-on-drawer-visible"
@@ -14,28 +14,22 @@
       
     </div>
     <div class="layout-margin row full-width" >
-      <div class="layout-margin column width-1of2 items-center"> 
-        <div class="card layout-margin column text-center justify-center" id="rojo">
-          <a class="text-light"href='http://www.google.es'> Daily actions </a>
+      <div class="layout-margin column width-1of2 items-center izqPanel"> 
+        <div class="card layout-margin column text-center justify-center" id="today">
         </div>
-        <div class="card layout-margin column text-center justify-center" id="verde">
-          <a class="text-light" href='http://www.google.es'> Subjects </a>
+        <div class="card layout-margin column text-center justify-center" id="subjects">
         </div>
-         <div class="card layout-margin column text-center justify-center" id="azul">
-                 <a class="text-light"href='http://www.google.es'> University </a>
+         <div class="card layout-margin column text-center justify-center" id="university">
         </div>
       </div>
-      <div class="column width-1of2 items-center"> 
+      <div class="column width-1of2 items-center derPanel"> 
       
-        <div class=" card layout-margin column text-center justify-center" id="amarillo">
-                 <a class="text-dark"href='http://www.google.es'> History actions </a>
+        <div class=" card layout-margin column text-center justify-center" id="history">
         </div>
-         <div class="card layout-margin column text-center justify-center" id="blanco">
-                 <a class="text-red"href='http://www.google.es'> Academic record  </a>
+         <div class="card layout-margin column text-center justify-center" id="courses">
          
         </div>
-         <div class="card layout-margin column text-center justify-center" id="morado">
-                 <a class="text-light"href='http://www.google.es'> My profile  </a>
+         <div class="card layout-margin column text-center justify-center" id="profile">
         </div>
     </div>
   </div>
@@ -63,49 +57,61 @@ export default {
     background-size: contain;
     height: auto
   }
+   #flat{
+    background: url(../assets/blackboardBackground.jpg) repeat center fixed;
+    background-size: cover;
+    height: 100%
+  }
   .card{
     height:100%
-    max-width:45vh
+    max-width:40vh
     box-shadow:none
   }
-  #rojo{
-    background: url(../assets/postItRojo.png);
+  #today{
+    background: url(../assets/postItToday2.png);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:center;
   }
-  #amarillo{
-    background: url(../assets/postItAmarillo.png);
+  #history{
+    background: url(../assets/postItHistory.png);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:center;
   }
-  #blanco{
-    background: url(../assets/postItBlanco.png);
+  #university{
+    background: url(../assets/postItUniversity.png);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:center;
   }
-  #blanco a{
-    padding-top:0.8em
-  }
-  #azul{
-    background: url(../assets/postItAzul.png);
+  #courses{
+    background: url(../assets/postItCourses.png);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:center;
   }
-  #morado{
-    background: url(../assets/postItMorado.png);
+  #profile{
+    background: url(../assets/postItProfile.png);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:center;
   }
-   #verde{
-    background: url(../assets/postItVerde.png);
+   #subjects{
+    background: url(../assets/postItSubjects.png);
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:center;
-    margin-top:-1em
+  }
+  .izqPanel{
+    margin-top:1em
+    margin-right:1vw
+    margin-left:1vw
+
+  }
+  .derPanel{
+    margin-left:1vw
+    margin-right:1vw
+    margin-top:1em
   }
 </style>
