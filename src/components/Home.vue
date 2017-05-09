@@ -69,7 +69,7 @@
           </div>
         </div>
          <div class="card layout-margin column text-center justify-center items-center" id="profile" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goProfile()">
             <div class="textCard">
               My profile
             </div>
@@ -94,6 +94,9 @@ export default {
     },
     goToday () {
       this.$router.push('Today')
+    },
+    goProfile () {
+      this.$router.push('Profile')
     }
   }
 }

@@ -23,13 +23,15 @@ var router = new VueRouter({
   routes: [
     { path: '/', component: load('Index'), name: '/' }, // Default
     { path: '/login', component: load('Login'), name: 'Login' }, // Login
+    { path: '/profile', component: load('Profile'), name: 'Profile' },
     { path: '/home', component: load('Home'), name: 'Home' }, // Home
     { path: '*', component: load('Error404'), name: 'Error404' } // Not found
   ]
 })
 var privateRoutes = [
   '/',
-  'Home'
+  'Home',
+  'Profile'
 ]
 router.beforeEach((to, from, next) => {
   if (!store.state.isLogged && (privateRoutes.indexOf(to.name) > -1)) {

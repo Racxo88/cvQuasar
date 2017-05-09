@@ -16,7 +16,7 @@ const store = new Vuex.Store({
       state.studentId = studentId
     },
     setUser (state, userId) {
-      state.studentId = userId
+      state.userId = userId
     }
   }
 })
