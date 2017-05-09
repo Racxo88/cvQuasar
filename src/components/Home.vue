@@ -106,7 +106,7 @@ export default {
 }
 .textCard{
   font-family: 'Roboto Condensed', sans-serif;
-  font-size:5vh
+  font-size:4vh
   text-shadow: 1px 1px 3px black, -1px 1px 3px black, 0px -1px 3px black;
   font-variant: small-caps;
   color:#66AA66
