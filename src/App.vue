@@ -2,7 +2,7 @@
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
     <router-view></router-view>
-     <q-fab v-if="isLogged"
+     <q-fab v-if="false"
         class="absolute-bottom-left"
         icon="settings"
         direction="right"
@@ -44,7 +44,6 @@ export default {
     font-size: 2.5em !important;
   }
   #ExitButton{
-        bottom: -3em;
-        
+     
   }
 </style>

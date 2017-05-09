@@ -66,6 +66,7 @@
       doLogIn () {
         auth.logIn(this.loginInfo)
         .then(() => {
+          console.log('Logged')
           this.$router.push('Home')
         })
         .catch(() => {

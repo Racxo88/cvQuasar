@@ -1,35 +1,79 @@
 <template>
 <div>
     <q-layout id="flat">
-    <div slot="header" class="toolbar bg-primary">
-      <button
-        class="hide-on-drawer-visible"
-        @click="$refs.drawer.open()"
+    <div slot="header" class="toolbar bg-primary text-center">
+      <q-toolbar-title >
+        Welcome {{this.$store.state.studentId}}
+      </q-toolbar-title>
+       <button
+        @click="$refs.rightDrawer.open()"
       >
         <i>menu</i>
       </button>
+  <q-drawer right-side swipe-only ref="rightDrawer" id="rightDrawer">
+    <div class="toolbar bg-faded">
       <q-toolbar-title :padding="0">
-        Title
+        Preferences
       </q-toolbar-title>
-      
+    </div>
+    <div class="list platform-delimiter text-primary">
+      <div class="list-header">
+      </div>
+      <q-drawer-link icon="mail" to="/account">Account</q-drawer-link>
+      <div class="item" v-on:click="logout()">
+        <i class="item-primary text-negative">power_settings_new</i>
+        <div class="item-content text-negative">Logout</div>
+      </div>
+    </div>
+  </q-drawer>
     </div>
     <div class="layout-margin row full-width" >
       <div class="layout-margin column width-1of2 items-center izqPanel"> 
-        <div class="card layout-margin column text-center justify-center" id="today">
+        <div class="card layout-margin column text-center justify-center items-center" id="today" >
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+            <div class="textCard">
+              Today
+            </div>
+          </div>
         </div>
-        <div class="card layout-margin column text-center justify-center" id="subjects">
+        <div class="card layout-margin column text-center justify-center items-center" id="subjects" >
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+            <div class="textCard">
+              Subjects
+            </div>
+          </div>
         </div>
-         <div class="card layout-margin column text-center justify-center" id="university">
+        <div class="card layout-margin column text-center justify-center items-center" id="university" >
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+            <div class="textCard">
+              University
+            </div>
+          </div>
         </div>
       </div>
       <div class="column width-1of2 items-center derPanel"> 
       
-        <div class=" card layout-margin column text-center justify-center" id="history">
+        <div class="card layout-margin column text-center justify-center items-center" id="history" >
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+            <div class="textCard">
+              History
+            </div>
+          </div>
         </div>
-         <div class="card layout-margin column text-center justify-center" id="courses">
-         
+     
+         <div class="card layout-margin column text-center justify-center items-center" id="courses" >
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+            <div class="textCard">
+              Courses
+            </div>
+          </div>
         </div>
-         <div class="card layout-margin column text-center justify-center" id="profile">
+         <div class="card layout-margin column text-center justify-center items-center" id="profile" >
+          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+            <div class="textCard">
+              My profile
+            </div>
+          </div>
         </div>
     </div>
   </div>
@@ -37,12 +81,20 @@
 </div>
 </template>
 <script>
+import auth from '../../services/auth'
 export default {
   data () {
     return {
     }
   },
   methods: {
+    logout () {
+      auth.logout()
+      this.$router.push('Login')
+    },
+    goToday () {
+      this.$router.push('Today')
+    }
   }
 }
 </script>
@@ -52,6 +104,16 @@ export default {
 .layout-header{
      border-bottom-width: 0px ! important
 }
+.textCard{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size:5vh
+  text-shadow: 1px 1px 3px black, -1px 1px 3px black, 0px -1px 3px black;
+  font-variant: small-caps;
+  color:#66AA66
+  display:flex
+  justify-content:center
+  align-content:center
+  }
   #cork{
     background: url(../assets/cork.png) repeat center center;
     background-size: contain;
@@ -114,4 +176,9 @@ export default {
     margin-right:1vw
     margin-top:1em
   }
+  .clickPanel{
+    width:100%
+    height:60%
+  }
+
 </style>

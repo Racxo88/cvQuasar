@@ -15,8 +15,8 @@ const auth = {
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
         store.commit('setUser', response.data.userId)
         axios.get('students/user/' + response.data.userId)
-        .then((response) => {
-          store.commit('setStudent', response.data.student.id)
+        .then((responseStudent) => {
+          store.commit('setStudent', responseStudent.data.student.id)
           console.log('Exito')
           console.log(store.state.studentId)
           console.log(store.state.userId)
