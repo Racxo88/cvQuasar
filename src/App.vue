@@ -46,4 +46,7 @@ export default {
   #ExitButton{
      
   }
+  .card{
+  box-shadow:none
+  }
 </style>
