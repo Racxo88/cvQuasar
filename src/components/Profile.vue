@@ -3,21 +3,23 @@
       <div class="card column  items-center justify-around scroll">
         <img v-if="isLandscape" class="profile-lands" src="../assets/Avatars/M-001.png">
         <img v-else class="profile" src="../assets/Avatars/M-001.png">
-        <div class="card-content items-start" :class="orientationCard">
-          <div class="align-center justify-around">
-            <div :class="orientation">
-              <div class="item nonLastItem ">
-                <i class="item-primary"> person</i>
-                <div class="item-content labelitem text-primary capitalize" >{{fullName}}</div>
-              </div>
-              <div class="item nonLastItem">
-                <i class="item-primary">today</i>
-                <div class="item-content labelitem text-primary">{{shortDate}}</div>
-              </div>
-              <div class="item nonLastItem">
-                <i class="item-primary">wc</i>
-                <div class="item-content  labelitem text-primary capitalize">{{student.genre}} </div>
-              </div>
+        <div class="card-content items-center" :class="orientationCard">
+          <div class="leftList" :class="orientation">
+            <div class="item  nonLastItemLeft ">
+              <i class="item-primary"> person</i>
+              <div class="item-content labelitem text-primary capitalize" >{{fullName}}</div>
+            </div>
+            <div class="item  nonLastItemLeft ">
+              <i class="item-primary"> person</i>
+              <div class="item-content labelitem text-primary capitalize" >{{fullName}}</div>
+            </div>
+            <div class="item nonLastItemLeft">
+              <i class="item-primary">today</i>
+              <div class="item-content labelitem text-primary">{{shortDate}}</div>
+            </div>
+            <div class="item nonLastItemLeft">
+              <i class="item-primary">wc</i>
+              <div class="item-content  labelitem text-primary capitalize">{{student.genre}} </div>
             </div>
           </div>
           <div class="width-4of5 self-strecht" :class="orientation">
@@ -122,7 +124,8 @@ export default {
 .card .profile-lands{
   max-width:70vh
 }
-
+.leftList{
+}
 .label{
   font-size:3vh
 }
@@ -131,8 +134,8 @@ export default {
   margin-left:3em!important
 }
 
-.nonLastItem{
- margin-bottom: 1vh
+.nonLastItemLeft{
+ height: 7vh
 }
 .item-content{
   margin-left: 4em;
