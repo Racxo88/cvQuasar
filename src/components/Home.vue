@@ -1,50 +1,22 @@
 <template>
-<div>
-    <q-layout id="flat">
-    <div slot="header" class="toolbar bg-primary text-center">
-      <q-toolbar-title >
-        Welcome {{this.$store.state.studentId}}
-      </q-toolbar-title>
-       <button
-        @click="$refs.rightDrawer.open()"
-      >
-        <i>menu</i>
-      </button>
-  <q-drawer right-side swipe-only ref="rightDrawer" id="rightDrawer">
-    <div class="toolbar bg-faded">
-      <q-toolbar-title :padding="0">
-        Preferences
-      </q-toolbar-title>
-    </div>
-    <div class="list platform-delimiter text-primary">
-      <div class="list-header">
-      </div>
-      <q-drawer-link icon="mail" to="/account">Account</q-drawer-link>
-      <div class="item" v-on:click="logout()">
-        <i class="item-primary text-negative">power_settings_new</i>
-        <div class="item-content text-negative">Logout</div>
-      </div>
-    </div>
-  </q-drawer>
-    </div>
-    <div class="layout-margin row full-width" >
-      <div class="layout-margin column width-1of2 items-center izqPanel"> 
-        <div class="card layout-margin column text-center justify-center items-center" id="today" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+    <div class="layout-content scroll" id="flat">
+      <div class="column width-1of2 items-center izqPanel"> 
+        <div class="card column text-center justify-center items-center" id="today" >
+          <div class="flex justify-center items-center clickPanel" v-on:click="goToday()">
             <div class="textCard">
               Today
             </div>
           </div>
         </div>
-        <div class="card layout-margin column text-center justify-center items-center" id="subjects" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+        <div class="card  column text-center justify-center items-center" id="subjects" >
+          <div class=" flex justify-center items-center clickPanel" v-on:click="goToday()">
             <div class="textCard">
               Subjects
             </div>
           </div>
         </div>
-        <div class="card layout-margin column text-center justify-center items-center" id="university" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+        <div class="card column text-center justify-center items-center" id="university" >
+          <div class=" flex justify-center items-center clickPanel" v-on:click="goToday()">
             <div class="textCard">
               University
             </div>
@@ -53,23 +25,23 @@
       </div>
       <div class="column width-1of2 items-center derPanel"> 
       
-        <div class="card layout-margin column text-center justify-center items-center" id="history" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+        <div class="card  column text-center justify-center items-center" id="history" >
+          <div class=" flex justify-center items-center clickPanel" v-on:click="goToday()">
             <div class="textCard">
               History
             </div>
           </div>
         </div>
      
-         <div class="card layout-margin column text-center justify-center items-center" id="courses" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goToday()">
+         <div class="card  column text-center justify-center items-center" id="courses" >
+          <div class=" flex justify-center items-center clickPanel" v-on:click="goToday()">
             <div class="textCard">
               Courses
             </div>
           </div>
         </div>
-         <div class="card layout-margin column text-center justify-center items-center" id="profile" >
-          <div class="layout-margin flex justify-center items-center clickPanel" v-on:click="goProfile()">
+         <div class="card  column text-center justify-center items-center" id="profile" >
+          <div class=" flex justify-center items-center clickPanel" v-on:click="goProfile()">
             <div class="textCard">
               My profile
             </div>
@@ -77,8 +49,6 @@
         </div>
     </div>
   </div>
-  </q-layout>
-</div>
 </template>
 <script>
 import auth from '../../services/auth'
@@ -125,7 +95,6 @@ export default {
    #flat{
     background: url(../assets/blackboardBackground.jpg) repeat center fixed;
     background-size: cover;
-    height: 100%
   }
   .card{
     height:100%
