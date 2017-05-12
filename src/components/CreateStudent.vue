@@ -16,11 +16,11 @@
       </q-datetime>
       <div class=" radiusPanel row justify-between">  
         <label>
-          <q-radio class='blue' v-model="student.genre" val="Male"></q-radio>
+          <q-radio class='blue' v-model="student.genre" val="male"></q-radio>
         Male
         </label>
         <label>
-          <q-radio class='pink' v-model="student.genre" val="Female"></q-radio>
+          <q-radio class='pink' v-model="student.genre" val="female"></q-radio>
           Female
         </label>
         
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { Toast } from 'quasar'
+import api from '../../services/api'
 export default {
   data () {
     return {
@@ -47,6 +49,30 @@ export default {
         birthday: undefined,
         genre: undefined
       }
+    }
+  },
+  methods: {
+    doCreateStudent () {
+      api.createStudent(this.student)
+      .then((response) => {
+        console.log(response)
+        Toast.create.positive({
+          html: 'Student created!',
+          timeout: 2500,
+          button: {
+            color: '#000'
+          }
+        })
+      })
+      .catch(() => {
+        Toast.create.negative({
+          html: 'Error creating student. Try again later.',
+          timeout: 2500,
+          button: {
+            color: '#000'
+          }
+        })
+      })
     }
   }
 }
