@@ -10,8 +10,8 @@
               <div class="item-content labelitem text-primary capitalize" >{{fullName}}</div>
             </div>
             <div class="item  nonLastItemLeft ">
-              <i class="item-primary"> person</i>
-              <div class="item-content labelitem text-primary capitalize" >{{fullName}}</div>
+              <i class="item-primary"> flag</i>
+              <div class="item-content labelitem text-primary capitalize" >{{student.country}}</div>
             </div>
             <div class="item nonLastItemLeft">
               <i class="item-primary">today</i>
@@ -29,7 +29,7 @@
             </span>
              <span class=" label bg-white nonLastItem justify-start ">
               <img src='../assets/Icons/libros1.png'>
-                  {{student.academicPoints}}000090
+                  {{student.academicPoints}}
             </span>
              <span class=" label bg-white nonLastItem justify-start " >
               <img src='../assets/Icons/red.png'>

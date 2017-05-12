@@ -92,10 +92,7 @@ export default {
     background-size: contain;
     height: auto
   }
-   #flat{
-    background: url(../assets/blackboardBackground.jpg) repeat center fixed;
-    background-size: cover;
-  }
+   
   .card{
     height:100%
     max-width:40vh

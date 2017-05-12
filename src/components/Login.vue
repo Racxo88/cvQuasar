@@ -33,6 +33,7 @@
 <script>
   import { Dialog, Toast } from 'quasar'
   import auth from '../../services/auth'
+  import api from '../../services/api'
   export default {
     data () {
       return {
@@ -67,7 +68,13 @@
         auth.logIn(this.loginInfo)
         .then(() => {
           console.log('Logged')
-          this.$router.push('Home')
+          api.getLoggedStudent()
+          .then((response) => {
+            this.$router.push('Home')
+          })
+          .catch(() => {
+            this.$router.push('CreateStudent')
+          })
         })
         .catch(() => {
           this.$store.commit('logged', false)

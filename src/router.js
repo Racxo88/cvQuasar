@@ -24,6 +24,7 @@ var router = new VueRouter({
     { path: '/', component: load('Index'), name: '/' }, // Default
     { path: '/login', component: load('Login'), name: 'Login' }, // Login
     { path: '/profile', component: load('Profile'), name: 'Profile' },
+    { path: '/createStudent', component: load('CreateStudent'), name: 'CreateStudent' },
     { path: '/home', component: load('Home'), name: 'Home' }, // Home
     { path: '*', component: load('Error404'), name: 'Error404' } // Not found
   ]
@@ -31,9 +32,11 @@ var router = new VueRouter({
 var privateRoutes = [
   '/',
   'Home',
-  'Profile'
+  'Profile',
+  'CreateStudent'
 ]
 router.beforeEach((to, from, next) => {
+  console.log(store.state)
   if (!store.state.isLogged && (privateRoutes.indexOf(to.name) > -1)) {
     next('/login')
   }

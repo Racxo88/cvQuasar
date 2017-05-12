@@ -1,9 +1,9 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
-    <q-layout id="flat">
+    <q-layout>
       <div slot="header" v-if="isLogged" class="toolbar bg-primary text-center">
-        <button
+        <button v-if="hasStudent"
           v-on:click="goHome()">
           <i>home</i>
         </button>
@@ -46,7 +46,12 @@ import auth from '../services/auth'
 export default {
   computed: {
     isLogged () {
+      console.log(this.$store.state)
       return this.$store.state.isLogged
+    },
+    hasStudent () {
+      console.log(this.$store.state)
+      return (this.$store.state.studentId > 0)
     }
   },
   methods: {
@@ -73,6 +78,10 @@ export default {
   }
   #ExitButton{
      
+  }
+  #flat{
+    background: url(./assets/blackboardBackground.jpg) repeat center fixed;
+    background-size: cover;
   }
   .card{
   box-shadow:none

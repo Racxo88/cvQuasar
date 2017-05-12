@@ -19,6 +19,9 @@ const auth = {
   },
   logout: () => {
     store.commit('logged', false)
+    store.commit('setStudent', -1)
+    store.commit('setUser', -1)
+
     axios.defaults.headers.common['Authorization'] = ''
   }
 }
