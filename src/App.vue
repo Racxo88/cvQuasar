@@ -70,8 +70,7 @@ export default {
   html, body, #q-app {
     height: 100%  }
   i{
-  font-size:4vh!important
-
+  font-size:1.5em!important
 }
   i.big {
     font-size: 2.5em !important;

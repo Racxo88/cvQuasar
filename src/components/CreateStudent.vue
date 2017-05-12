@@ -4,11 +4,11 @@
     <img  src="../assets/Avatars/M-001.png">
     </div>
     <div class='mainColumn column height-3of4'>
-      <input class='text-light' v-model="student.name" placeholder="Name">
-      <input class='text-light' v-model="student.lastName" placeholder="Last name">
-      <input class='text-light' v-model="student.country" placeholder="Country">
+      <input class='text-light entry' v-model="student.name" placeholder="Name">
+      <input class='text-light entry' v-model="student.lastName" placeholder="Last name">
+      <input class='text-light entry' v-model="student.country" placeholder="Country">
       <q-datetime
-        class='text-light'
+        class='text-light birthday entry'
         v-model="student.birthday"
         type="date"
         placeholder="Birthday"
@@ -59,5 +59,11 @@ export default {
 .radiusPanel{
   padding-top:2em;
   padding-bottom:2em
+}
+.birthday{
+  min-height:35px
+}
+.entry:focus{
+  color:black!important
 }
 </style>
