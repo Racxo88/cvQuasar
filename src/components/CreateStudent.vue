@@ -63,6 +63,7 @@ export default {
             color: '#000'
           }
         })
+        this.$router.push('Profile')
       })
       .catch(() => {
         Toast.create.negative({

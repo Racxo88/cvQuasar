@@ -16,11 +16,19 @@ const api = {
       lastName: student.lastName,
       country: student.country,
       birthday: student.birthday,
-      genre: student.genre
+      genre: student.genre,
+      money: 500
     })
     .then((response) => {
       store.commit('setStudent', response.data.id)
       return response.data
+    })
+  },
+  deleteStudent: () => {
+    return axios.delete('students/user/' + store.state.userId)
+    .then((response) => {
+      store.commit('setStudent', -1)
+      return response
     })
   }
 
