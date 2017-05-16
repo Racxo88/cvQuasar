@@ -1,8 +1,8 @@
 <template>
     <div class="layout-content column scroll justify-between"id="flat">
       <div class="card column  items-center justify-around scroll">
-        <img v-if="isLandscape" class="profile-lands" src="../assets/Avatars/M-007.png">
-        <img v-else class="profile" src="../assets/Avatars/M-007.png">
+        <img v-if="isLandscape" class="profile-lands" :src="require('../assets' +'/Avatars/'+ student.Avatar.image)">
+        <img v-else class="profile" :src="require('../assets' +'/Avatars/'+ student.Avatar.image)">
         <div class="card-content items-center column full-width"> 
           <div class="items-center" :class="orientationCard">
             <div class="leftList" :class="orientation">
