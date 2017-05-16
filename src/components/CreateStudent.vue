@@ -1,7 +1,10 @@
 <template>
   <div class='layout-content column justify-center text-light items-center scroll' id="flat">
     <div class="height-1of4">
-    <img  src="../assets/Avatars/M-001.png">
+    <img  v-if="student.genre === 'male'" src="../assets/Avatars/M-001.png">
+    <img  v-else-if="student.genre === 'female'" src="../assets/Avatars/F-003.png">
+    <img  v-else-if="student.genre === 'other'" src="../assets/Avatars/O-001.png">
+
     </div>
     <div class='mainColumn column height-3of4'>
       <input class='text-light entry' v-model="student.name" placeholder="Name">
@@ -25,8 +28,8 @@
         </label>
         
         <label>
-          <q-radio class='purple' v-model="student.genre" val="Trans"></q-radio>
-          Transexual
+          <q-radio class='purple' v-model="student.genre" val="other"></q-radio>
+          Other
         </label>
       </div>
       <button v-on:click="doCreateStudent" id="SignInButton" class=" strong text-dark bg-light push ">
@@ -47,7 +50,8 @@ export default {
         lastName: undefined,
         country: undefined,
         birthday: undefined,
-        genre: undefined
+        genre: 'male',
+        avatar: undefined
       }
     }
   },

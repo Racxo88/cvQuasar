@@ -94,8 +94,8 @@
 <style lang="styl" scoped>
 h1{
   background-color: rgba(100, 100,100, 0.3);
-  font-family: Verdana
-  font-variant: small-caps
+  font-family: Verdana;
+  font-variant: small-caps;
   font-size:8vw
 }
 
@@ -106,9 +106,9 @@ background: url(../assets/backGroundHome.png) repeat center center;
 
 }
 #cardBack{
-    padding-top:2vw
-    max-width:750px
-    max-height:900px
+    padding-top:2vw;
+    max-width:750px;
+    max-height:900px;
     background: url(../assets/loginCard.png);
     background-repeat:no-repeat;
     background-size:90% 100%;
@@ -116,8 +116,8 @@ background: url(../assets/backGroundHome.png) repeat center center;
     margin-bottom:2em
 }
 .card{
-  box-shadow:none
-  max-width:750px
+  box-shadow:none;
+  max-width:750px;
   max-height:9000px
 }
 input{
@@ -128,20 +128,20 @@ input{
 margin-bottom:1em
 }
 .button{
-  margin-top:1vh
+  margin-top:1vh;
   margin-bottom:1vh
 
 }
 .question
 {
-margin-top:1vh
-font-size:3vh
+margin-top:1vh;
+font-size:3vh;
 }
 
 #LogInButton{
 
-  margin-right:0.5em
-  font-size:1.5vh
+  margin-right:0.5em;
+  font-size:1.5vh;
 
 }
 #SignInButton{

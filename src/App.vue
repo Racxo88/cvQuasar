@@ -75,9 +75,6 @@ export default {
   i.big {
     font-size: 2.5em !important;
   }
-  #ExitButton{
-     
-  }
   #flat{
     background: url(./assets/blackboardBackground.jpg) repeat center fixed;
     background-size: cover;

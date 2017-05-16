@@ -1,42 +1,42 @@
 <template>
-    <div class="layout-content column scroll justify-between">
+    <div class="layout-content column scroll justify-between"id="flat">
       <div class="card column  items-center justify-around scroll">
-        <img v-if="isLandscape" class="profile-lands" src="../assets/Avatars/M-001.png">
-        <img v-else class="profile" src="../assets/Avatars/M-001.png">
+        <img v-if="isLandscape" class="profile-lands" src="../assets/Avatars/M-007.png">
+        <img v-else class="profile" src="../assets/Avatars/M-007.png">
         <div class="card-content items-center column full-width"> 
           <div class="items-center" :class="orientationCard">
             <div class="leftList" :class="orientation">
               <div class="item  nonLastItemLeft ">
-                <i class="item-primary"> person</i>
-                <div class="item-content labelitem text-primary capitalize" >{{fullName}}</div>
+                <i class="item-primary text-primary"> person</i>
+                <div class="item-content labelitem text-light capitalize" >{{fullName}}</div>
               </div>
               <div class="item  nonLastItemLeft ">
-                <i class="item-primary"> flag</i>
-                <div class="item-content labelitem text-primary capitalize" >{{student.country}}</div>
+                <i class="item-primary text-primary"> flag</i>
+                <div class="item-content labelitem text-light capitalize" >{{student.country}}</div>
               </div>
               <div class="item nonLastItemLeft">
-                <i class="item-primary">today</i>
-                <div class="item-content labelitem text-primary">{{shortDate}}</div>
+                <i class="item-primary text-primary">today</i>
+                <div class="item-content labelitem text-light">{{shortDate}}</div>
               </div>
               <div class="item nonLastItemLeft">
-                <i class="item-primary">wc</i>
-                <div class="item-content  labelitem text-primary capitalize">{{student.genre}} </div>
+                <i class="item-primary text-primary">wc</i>
+                <div class="item-content  labelitem text-light capitalize">{{student.genre}} </div>
               </div>
             </div>
             <div class="width-4of5 self-strecht" :class="orientation">
-              <span class=" label bg-white nonLastItem justify-start ">
+              <span class=" label text-light nonLastItem justify-start ">
                 <img src='../assets/Icons/monedas.png'>
                     {{student.money}}
               </span>
-              <span class=" label bg-white nonLastItem justify-start ">
+              <span class=" label text-light nonLastItem justify-start ">
                 <img src='../assets/Icons/libros1.png'>
                     {{student.academicPoints}}
               </span>
-              <span class=" label bg-white nonLastItem justify-start " >
+              <span class=" label text-light nonLastItem justify-start " >
                 <img src='../assets/Icons/red.png'>
                     {{student.socialPoints}}
               </span>
-              <span class="label bg-white nonLastItem justify-start ">
+              <span class="label text-light nonLastItem justify-start ">
                 <img src='../assets/Icons/work.png'>
                     {{student.workPoints}}
               </span>
@@ -151,24 +151,23 @@ export default {
 }
 
 .card .profile{
-  padding-left:5vw
-  padding-right:5vw
-  max-width:50vh
+  padding-left:5vw;
+  padding-right:5vw;
+  max-width:50vh;
   margin-bottom:1em
 }
 .card .profile-lands{
-  max-height:50vh
+  max-height:50vh;
   max-width:50%
-}
-.leftList{
 }
 .label{
   font-size:3vh
 }
 .labelitem{
-  font-size:3vh
+  font-size:3vh;
   margin-left:4em!important
 }
+
 i{
   font-size:4vh!important
 }
@@ -183,7 +182,7 @@ span{
   margin-top:0.5em
 }
 span img{
-  height:5vh
+  height:5vh;
   margin-right:2vw
 }
 #DeleteButton i{

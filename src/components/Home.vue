@@ -79,12 +79,12 @@ export default {
 }
 .textCard{
   font-family: 'Roboto Condensed', sans-serif;
-  font-size:4vh
+  font-size:4vh;
   text-shadow: 1px 1px 3px black, -1px 1px 3px black, 0px -1px 3px black;
   font-variant: small-caps;
-  color:#66AA66
-  display:flex
-  justify-content:center
+  color:#66AA66;
+  display:flex;
+  justify-content:center;
   align-content:center
   }
   #cork{
@@ -94,8 +94,8 @@ export default {
   }
    
   .card{
-    height:100%
-    max-width:40vh
+    height:100%;
+    max-width:40vh;
     box-shadow:none
   }
   #today{
@@ -135,18 +135,18 @@ export default {
     background-position:center;
   }
   .izqPanel{
-    margin-top:1em
-    margin-right:1vw
+    margin-top:1em;
+    margin-right:1vw;
     margin-left:1vw
 
   }
   .derPanel{
-    margin-left:1vw
-    margin-right:1vw
+    margin-left:1vw;
+    margin-right:1vw;
     margin-top:1em
   }
   .clickPanel{
-    width:100%
+    width:100%;
     height:60%
   }
 
