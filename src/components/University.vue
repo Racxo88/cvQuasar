@@ -112,7 +112,7 @@ export default {
     border-bottom:0px
 }
 .Degrees{
-  background-color: #FFFFFF55;
+  background-color: rgba(FF, FF, FF, 55);
   border: 2px solid whitesmoke;
   border-top:0px
 }
