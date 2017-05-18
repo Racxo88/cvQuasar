@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import { Dialog, Toast } from 'quasar'
+  import { Toast } from 'quasar'
   import auth from '../../services/auth'
   import api from '../../services/api'
   export default {
@@ -50,19 +50,7 @@
     },
     methods: {
       doSignIn () {
-        Dialog.create({
-          title: 'Info',
-          message: 'This website is just for cool people.',
-          buttons: [
-            'Accept',
-            {
-              label: 'Cancel',
-              handler () {
-                window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-              }
-            }
-          ]
-        })
+        this.$router.push('CreateUser')
       },
       doLogIn () {
         auth.logIn(this.loginInfo)

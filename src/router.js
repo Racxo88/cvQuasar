@@ -25,6 +25,7 @@ var router = new VueRouter({
     { path: '/login', component: load('Login'), name: 'Login' }, // Login
     { path: '/profile', component: load('Profile'), name: 'Profile' },
     { path: '/createStudent', component: load('CreateStudent'), name: 'CreateStudent' },
+    { path: '/createUser', component: load('CreateUser'), name: 'CreateUser' },
     { path: '/home', component: load('Home'), name: 'Home' }, // Home
     { path: '*', component: load('Error404'), name: 'Error404' } // Not found
   ]

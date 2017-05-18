@@ -30,7 +30,16 @@ const api = {
       store.commit('setStudent', -1)
       return response
     })
+  },
+  createUser: (user) => {
+    return axios.post('users/register/', {
+      userName: user.userName,
+      password: user.password,
+      email: user.email
+    })
+    .then((response) => {
+      return response.data
+    })
   }
-
 }
 export default api
