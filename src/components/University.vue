@@ -8,97 +8,31 @@
           <label class="text-light width-1of5"></label>
         </div>
         <div class="Degrees column align-start full-height scroll ">
-          <div class="oneDegree row justify-around items-center items-center ">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
+          <div v-for="degree of this.myDegrees" class="oneDegree row justify-around items-center items-center">
+            <label class="text-light width-2of5">{{degree.name}}</label>
+            <label class="text-light width-2of5">{{degree.Students[0].StudentDegree.CurrentStatusId}}</label>
             <i class="text-light width-1of5">info</i>
           </div>
-          <div class="oneDegree row justify-around items-center items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>
-          <div class="oneDegree row justify-around items-center">
-            <label class="text-light width-2of5">Filology</label>
-            <label class="text-light width-2of5">On Progess</label>
-            <i class="text-light width-1of5">info</i>
-          </div>          
         </div>  
       </div>
     </div>
     <div class="card OtherDegrees width-1of2 row full-width">
       <div class="card-content column full-width full-height justify-center">
         <q-slider infinite  actions class="text-white full-width full-height">
-          <div slot="slide" class="centered full-width text-black" id="dragon">
-            Dragon Ryder
-          </div>
-          <div slot="slide" class="centered full-width text-black" id="chino">
-            Chinese Maestry
-          </div>
-           <div slot="slide" class="centered full-width text-light" id="alchemy">
-            Alchemy
+          <div v-for="otherdegree of this.otherDegrees" slot="slide" class="centered full-width text-black slides" :style='{backgroundImage: "url(" +require("../assets/Degrees/" + otherdegree.image)  + ")",}'>
+            {{otherdegree.name}}
           </div>
           <div class="q-slider-toolbar row justify-end ">
           
           <div  slot="action" class="moneyDegree row items-center">
-          <img src='../assets/Icons/monedas.png'>1000</img>
-          </div>
-          <i slot="action" @click="someMethod()">
-            add_shopping_cart
-          </i>
-          <i slot="action" @click="someMethod()">
-            info
-          </i>
+            <img src='../assets/Icons/monedas.png'>1000</img>
+            </div>
+            <i slot="action" @click="someMethod()">
+              add_shopping_cart
+            </i>
+            <i slot="action" @click="someMethod()">
+              info
+            </i>
           </div>
         </q-slider>
       </div>
@@ -107,13 +41,22 @@
 </template>
 
 <script>
-// import api from '../../services/api'
+import api from '../../services/api'
 export default {
   data () {
     return {
-      myCourses: undefined,
-      otherCourses: undefined
+      myDegrees: undefined,
+      otherDegrees: undefined
     }
+  },
+  created () {
+    api.getDegreesByStudent().then((data) => {
+      this.myDegrees = data
+    })
+    api.getDegreesByNoStudent().then((data) => {
+      this.otherDegrees = data
+      console.log(data)
+    })
   },
   methods: {
   }
@@ -139,30 +82,11 @@ label{
 .moneyDegree{
   margin-right:1em
 }
-#dragon{
-  background: url(../assets/Degrees/dragon.png);
+.slides{
     background-repeat:repeat;
     background-size: cover;
     background-position: center;
-    font-size:12vw;
-    font-weight: bold;
-    border: 2px solid whitesmoke;
-}
-#chino{
-  background: url(../assets/Degrees/chino.png);
-    background-repeat:repeat;
-    background-size: cover;
-    background-position: center;
-    font-size:10vw;
-    font-weight: bold;
-    border: 2px solid whitesmoke;
-}
-#alchemy{
-  background: url(../assets/Degrees/alchemy.jpg);
-    background-repeat:repeat;
-    background-size: contain;
-    background-position: center;
-    font-size:12vw;
+    font-size:6vw;
     font-weight: bold;
     border: 2px solid whitesmoke;
 }

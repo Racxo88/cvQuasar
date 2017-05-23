@@ -40,6 +40,18 @@ const api = {
     .then((response) => {
       return response.data
     })
+  },
+  getDegreesByStudent: () => {
+    return axios.get('degrees/student/' + store.state.studentId)
+    .then((response) => {
+      return response.data
+    })
+  },
+  getDegreesByNoStudent: () => {
+    return axios.get('degrees/nostudent/' + store.state.studentId)
+    .then((response) => {
+      return response.data
+    })
   }
 }
 export default api
