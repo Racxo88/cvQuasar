@@ -20,7 +20,6 @@
       <div class="card-content column full-width full-height justify-center">
         <q-slider infinite class="text-white full-width full-height">
           <div v-for="otherdegree of this.otherDegrees" slot="slide" class="centered row full-width text-black slides justify-between" :style='{backgroundImage: "url(" +require("../assets/Degrees/" + otherdegree.image)  + ")",}'>
-          {{$currentSlide}}
             <div class="slide-content column full-height justify-center">
               <div class=nameDegree>
                 {{otherdegree.name}}
@@ -28,7 +27,7 @@
               
             </div>
             <div class="row full-width justify-between text-light">
-                <button v-on:click="doSignIn" id="BuyButton" class="text-light push glossy row items-center ">
+                <button v-on:click="buyDegree(otherdegree.id, otherdegree.money)" id="BuyButton" class="text-light push glossy row items-center ">
                 <img src='../assets/Icons/monedas.png'></img>
               {{otherdegree.money}}
               
@@ -51,6 +50,7 @@
 
 <script>
 import api from '../../services/api'
+import { Dialog, Toast } from 'quasar'
 export default {
   data () {
     return {
@@ -68,9 +68,46 @@ export default {
     })
   },
   methods: {
-    buyDegree (name) {
-      console.log(name)
-      // api.isMoneyEnough()
+    buyDegree (id, money) {
+      api.isMoneyEnough(id, money)
+      .then((response) => {
+        if (!response) {
+          Toast.create.negative({
+            html: 'Sorry, you don\'t have enough money',
+            timeout: 2500,
+            button: {
+              color: '#000'
+            }
+          })// Message not enough money
+        }
+        else {
+          var vm = this
+          Dialog.create({
+            title: 'Confirm',
+            message: 'Are you sure that you want to buy this degree?',
+            buttons: [
+              {
+                label: 'Yes',
+                classes: 'positive',
+                handler () {
+                  api.getDegreesByStudent().then((data) => {
+                    vm.myDegrees = data
+                  })
+                  api.getDegreesByNoStudent().then((data) => {
+                    vm.otherDegrees = data
+                  })
+                }
+              },
+              {
+                label: 'No',
+                classes: 'negative',
+                handler () {
+                }
+              }
+            ]
+          })
+        }
+      })
     }
   }
 }

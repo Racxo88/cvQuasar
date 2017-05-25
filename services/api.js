@@ -16,8 +16,7 @@ const api = {
       lastName: student.lastName,
       country: student.country,
       birthday: student.birthday,
-      genre: student.genre,
-      money: 500
+      genre: student.genre
     })
     .then((response) => {
       store.commit('setStudent', response.data.id)
@@ -51,6 +50,28 @@ const api = {
     return axios.get('degrees/nostudent/' + store.state.studentId)
     .then((response) => {
       return response.data
+    })
+  },
+  isMoneyEnough: (id, money) => {
+    return api.getLoggedStudent().then((student) => {
+      console.log(student)
+      if (student.money >= money) {
+        return axios.post('degrees/student/' + store.state.studentId, {
+          id: id
+        })
+        .then((response) => {
+          return axios.put('students/user/' + store.state.userId, {
+            money: student.money - money
+          })
+          .then((response) => {
+            console.log(response.data)
+            return response.data
+          })
+        })
+      }
+      else {
+        return false
+      }
     })
   }
 }
