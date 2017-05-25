@@ -34,9 +34,9 @@
         </div>
      
          <div class="card  column text-center justify-center items-center" id="courses" >
-          <div class=" flex justify-center items-center clickPanel" v-on:click="goToday()">
+          <div class=" flex justify-center items-center clickPanel" v-on:click="goDegree()">
             <div class="textCard">
-              Courses
+              Degrees
             </div>
           </div>
         </div>
@@ -70,6 +70,9 @@ export default {
     },
     goUniversity () {
       this.$router.push('University')
+    },
+    goDegree () {
+      this.$router.push('Degree')
     }
   }
 }

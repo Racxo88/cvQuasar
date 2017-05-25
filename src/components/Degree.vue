@@ -1,7 +1,7 @@
 <template>
-  <div class="column full-width " id="flat">
-    <div class="card MyDegrees row width-1of2 full-width">
-      <div class="card-content column full-width">
+  <div class="column full-width  " id="flat">
+    <div class="card MyDegrees row width-1of2 full-width ">
+      <div class="card-content column full-width ">
         <div class="Headers row bg-primary">
           <label class="text-light width-2of5">Name</label>
           <label class="text-light width-2of5">Status</label>
@@ -16,23 +16,32 @@
         </div>  
       </div>
     </div>
-    <div class="card OtherDegrees width-1of2 row full-width">
+    <div class="card OtherDegrees width-1of2 row full-width ">
       <div class="card-content column full-width full-height justify-center">
-        <q-slider infinite  actions class="text-white full-width full-height">
-          <div v-for="otherdegree of this.otherDegrees" slot="slide" class="centered full-width text-black slides" :style='{backgroundImage: "url(" +require("../assets/Degrees/" + otherdegree.image)  + ")",}'>
-            {{otherdegree.name}}
-          </div>
-          <div class="q-slider-toolbar row justify-end ">
-          
-          <div  slot="action" class="moneyDegree row items-center">
-            <img src='../assets/Icons/monedas.png'>1000</img>
+        <q-slider infinite class="text-white full-width full-height">
+          <div v-for="otherdegree of this.otherDegrees" slot="slide" class="centered row full-width text-black slides justify-between" :style='{backgroundImage: "url(" +require("../assets/Degrees/" + otherdegree.image)  + ")",}'>
+          {{$currentSlide}}
+            <div class="slide-content column full-height justify-center">
+              <div class=nameDegree>
+                {{otherdegree.name}}
+              </div>
+              
             </div>
-            <i slot="action" @click="someMethod()">
-              add_shopping_cart
-            </i>
-            <i slot="action" @click="someMethod()">
-              info
-            </i>
+            <div class="row full-width justify-between text-light">
+                <button v-on:click="doSignIn" id="BuyButton" class="text-light push glossy row items-center ">
+                <img src='../assets/Icons/monedas.png'></img>
+              {{otherdegree.money}}
+              
+              </button>
+                <div class='label'>
+    
+                  
+              </div>
+              
+              <i slot="action" @click="someMethod()">
+                info
+              </i>
+            </div>
           </div>
         </q-slider>
       </div>
@@ -59,6 +68,10 @@ export default {
     })
   },
   methods: {
+    buyDegree (name) {
+      console.log(name)
+      // api.isMoneyEnough()
+    }
   }
 }
 </script>
@@ -79,8 +92,21 @@ export default {
 label{
   font-size:1em
 }
-.moneyDegree{
-  margin-right:1em
+
+.nameDegree{
+  margin-bottom:-3vh;
+  padding:0.5vh;
+  color:black
+}
+#BuyButton{
+  margin-left:0.1em;
+  margin-bottom:0.1em
+  color:white;
+  background-color:#ffd949A0;
+  font-size:3vh
+}
+#BuyButton img{
+  margin-right:0.4em
 }
 .slides{
     background-repeat:repeat;
@@ -89,12 +115,9 @@ label{
     font-size:6vw;
     font-weight: bold;
     border: 2px solid whitesmoke;
+    padding:0px
 }
 
-div .q-slider-toolbar{
-opacity: 1;
-padding:0
-}
 .card-content{
   padding-top:0.3em;
   padding-bottom:0px
