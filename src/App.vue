@@ -3,10 +3,15 @@
   <div id="q-app">
     <q-layout>
       <div slot="header" v-if="isLogged" class="toolbar bg-primary text-center">
+       <button 
+          v-on:click="goBack()">
+          <i>arrow_back</i>
+        </button>    
         <button v-if="hasStudent"
           v-on:click="goHome()">
           <i>home</i>
         </button>
+        
         <q-toolbar-title class="title" >
           My profile
         </q-toolbar-title>
@@ -61,6 +66,9 @@ export default {
     },
     goHome () {
       this.$router.push('Home')
+    },
+    goBack () {
+      window.history.go(-1)
     }
   }
 }

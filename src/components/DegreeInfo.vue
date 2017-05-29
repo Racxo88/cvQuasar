@@ -1,5 +1,5 @@
 <template>
-  <div class="column full-width  " id="flat">
+  <div class="column fondo full-width" :style='{backgroundImage: "url(" +require("../assets/Degrees/" + degree.image)  + ")",}'>
     <div class="card MyDegrees row width-1of2 full-width ">
       <div class="card-content column full-width ">
         <div class="Headers row bg-primary">
@@ -49,11 +49,11 @@ import { Dialog, Toast } from 'quasar'
 export default {
   data () {
     return {
-      myDegrees: undefined,
-      otherDegrees: undefined
+      degree: undefined
     }
   },
   created () {
+    this.degree = this.$store.state.degree
     api.getDegreesByStudent().then((data) => {
       this.myDegrees = data
     })
@@ -113,6 +113,11 @@ export default {
 </script>
 
 <style lang="styl" scoped>
+.fondo{
+  background-repeat:repeat;
+  background-size: cover;
+  background-position: center;
+}
 .Headers{
     border: 2px solid whitesmoke;
     border-bottom:0px

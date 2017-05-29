@@ -27,6 +27,7 @@ var router = new VueRouter({
     { path: '/createStudent', component: load('CreateStudent'), name: 'CreateStudent' },
     { path: '/createUser', component: load('CreateUser'), name: 'CreateUser' },
     { path: '/degree', component: load('Degree'), name: 'Degree' },
+    { path: '/degreeInfo', component: load('DegreeInfo'), name: 'DegreeInfo' },
     { path: '/home', component: load('Home'), name: 'Home' }, // Home
     { path: '*', component: load('Error404'), name: 'Error404' } // Not found
   ]
@@ -36,7 +37,8 @@ var privateRoutes = [
   'Home',
   'Profile',
   'CreateStudent',
-  'Degree'
+  'Degree',
+  'DegreeInfo'
 ]
 router.beforeEach((to, from, next) => {
   console.log(store.state)

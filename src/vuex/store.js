@@ -5,7 +5,8 @@ const store = new Vuex.Store({
   state: {
     isLogged: false,
     studentId: -1,
-    userId: -1
+    userId: -1,
+    degree: undefined
   },
 
   mutations: {
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
     },
     setUser (state, userId) {
       state.userId = userId
+    },
+    setCurrentDegree (state, degree) {
+      state.degree = degree
     }
   }
 })
